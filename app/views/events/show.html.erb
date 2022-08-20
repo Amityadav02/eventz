@@ -15,8 +15,7 @@
       </p>
 
       <div class="register">
-        <%= link_to "register!", new_event_registration_path(@event),
-              class: "register" %>
+        <%= register_or_sold_out(@event) %>
       <p>
         <%= link_to "who's registered?", event_registrations_path(@event) %>
       </p>
