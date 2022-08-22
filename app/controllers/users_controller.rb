@@ -39,6 +39,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@user.destroy
 		redirect_to events_url, alert: "Account succesfully deleted"
+		session[:user_id] = nil
 	end
 
 
