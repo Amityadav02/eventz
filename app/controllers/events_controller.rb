@@ -30,7 +30,6 @@ class EventsController < ApplicationController
     @event= Event.new(event_params)
     if @event.save
 			redirect_to @event, notice: "Event succesfully created!"
-      redirect_to @event 
 		else
 			render :new
 		end 
