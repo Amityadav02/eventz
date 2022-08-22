@@ -17,9 +17,11 @@
 		</section>
 	<% end %>
 
-	 <section class="admin">
-          <%= link_to "Add new event", new_event_path, class: "button" %>
-     </section>
+  <% if current_user && current_user.admin? %>
+	  <section class="admin">
+       <%= link_to "Add new event", new_event_path, class: "button" %>
+    </section>
+	<% end %>
 
   
 

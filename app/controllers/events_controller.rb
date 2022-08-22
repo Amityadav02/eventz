@@ -1,8 +1,11 @@
-class EventsController < ApplicationController
+  class EventsController < ApplicationController
 
-  def index
+	before_action :require_signin, except: [:index, :show]
+	before_action :require_admin, except: [:index, :show]
+
+    def index
     @events = Event.upcoming 
-  end
+    end
 
 
 	def show
@@ -13,8 +16,8 @@ class EventsController < ApplicationController
 	  @event = Event.find(params[:id])
 	end
 
-	def update
-	  @event = Event.find(params[:id])
+  def update
+	@event = Event.find(params[:id])
 	  if @event.update(event_params)
 	    redirect_to @event, notice: "Event succesfully updated!"
 		else
