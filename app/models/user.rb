@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :registrations, dependent: :destroy
 
+  has_one_attached :person
+
   has_secure_password
 
   validates :name, presence: true
